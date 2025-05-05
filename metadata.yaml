@@ -3,4 +3,4 @@ desc: 通过正则来过滤大模型的输出 # 插件简短描述
 help:  # 插件的帮助信息
 version: v1.0.0 # 插件版本号。格式：v1.1.1 或者 v1.1
 author: yuallart # 作者
-repo: https://github.com/Soulter/astrbot_plugin_r1_filter # 插件的仓库地址
+repo: https://github.com/yuallart/astrbot_plugin_regex_filter # 插件的仓库地址
