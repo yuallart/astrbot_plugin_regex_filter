@@ -1,0 +1,64 @@
+{
+  "debug": {
+    "description": "是否开启调试模式，开启后，会输出一些调试信息",
+    "type": "bool",
+    "hint": "会以logger.info()输出调试信息，可以用来判断自定义的正则有没有生效"
+  },
+  "emoji_filter": {
+    "description": "是否启用emoji过滤，会过滤掉所有emoji表情",
+    "hint": "使用emoji库替换所有可能存在的emoji表情，插件会自动安装这个库，如没有，请手动安装 pip install emoji",
+    "type": "object",
+    "items": {
+      "condition": {
+        "description": "是否启用这项功能",
+        "type": "bool",
+        "hint": ""
+      },
+      "value": {
+        "description": "需要替换的值，如果没有，将替换为空值",
+        "type": "string",
+        "hint": "将emoji表情替换为此值"
+      }
+    }
+  },
+  "url_filter": {
+    "description": "是否启用url过滤，会过滤掉所有url",
+    "type": "object",
+    "hint": "会替换所有以http，https，www开头，然后com，cn结尾的url",
+    "items": {
+      "condition": {
+        "description": "是否启用这项功能",
+        "type": "bool",
+        "hint": ""
+      },
+      "value": {
+        "description": "需要替换的值，如果没有，将替换为空值",
+        "type": "string",
+        "hint": "将所有出现的url替换成此值，表达式为 http[s]?://\\S+|www\\.\\S+|[a-zA-Z0-9.-]+\\.(com|cn)"
+      }
+    }
+  },
+  "bracket_filter": {
+    "description": "是否过滤所有AI的动作描写，会过滤掉所有中文和英文括号",
+    "type": "object",
+    "hint": "使用递归正则实现替换括号",
+    "items": {
+      "condition": {
+        "description": "是否启用这项功能",
+        "type": "bool",
+        "hint": ""
+      },
+      "value": {
+        "description": "需要替换的值，如果没有，将替换为空值",
+        "type": "string",
+        "hint": "会替换所有的中文括号（xxx），英文括号(xxx)。只有成对的括号会被替换，单个的括号则是直接删除"
+      }
+    }
+  },
+  "any_filter": {
+    "description": "自定义正则过滤器",
+    "type": "list",
+    "hint": "自定义正则总是会在最后执行，请输入正确的json字符串，来自定义正则过滤器，默认的格式为{condition:\"false\",regex:\"xxx\",value:\"xxx\"},condition为是否启用，regex为正则表达式，value为要替换的值",
+    "items": {}
+  }
+}
